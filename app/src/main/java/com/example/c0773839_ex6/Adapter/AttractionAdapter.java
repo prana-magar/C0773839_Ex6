@@ -38,10 +38,11 @@ public class AttractionAdapter extends RecyclerView.Adapter<AttractionAdapter.At
     public void onBindViewHolder(@NonNull AttractionViewHolder holder, int position) {
         final CanadaAttraction canadaAttraction = this.attractions.get(position);
 //        holder.attractionName.setText(canadaAttraction.getName());
-        holder.attractionImage.setImageResource(R.drawable.ripley);
+        holder.attractionImage.setImageResource(holder.itemView.getContext().getResources().getIdentifier(canadaAttraction.getImage_name(),"drawable","com.example.c0773839_ex6"));
+
         holder.attractionName.setText(canadaAttraction.getName());
-        holder.attractionLocation.setText(canadaAttraction.getAddress());
-//        holder.attractionDescription.setText(canadaAttraction.getDescription());
+        holder.attractionLocation.setText(canadaAttraction.getProvince());
+        holder.openTime.setText(canadaAttraction.getOpenTime());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,7 +64,7 @@ public class AttractionAdapter extends RecyclerView.Adapter<AttractionAdapter.At
     public class AttractionViewHolder extends RecyclerView.ViewHolder {
 
           ImageView attractionImage;
-          TextView attractionName, attractionLocation, attractionDescription;
+          TextView attractionName, attractionLocation, openTime;
 //        TextView attractionName;
         public AttractionViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -71,7 +72,7 @@ public class AttractionAdapter extends RecyclerView.Adapter<AttractionAdapter.At
             attractionImage = itemView.findViewById(R.id.attraction_image_id);
             attractionName = itemView.findViewById(R.id.attraction_name_id);
             attractionLocation = itemView.findViewById(R.id.location_id);
-//            attractionDescription = itemView.findViewById(R.id.short_description_id);
+            openTime = itemView.findViewById(R.id.open_time_id);
         }
     }
 }

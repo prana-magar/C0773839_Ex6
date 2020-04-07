@@ -12,13 +12,14 @@ public class CanadaAttraction implements Serializable {
         private String province;
         private String description;
         private String image_name;
+        private String openTime;
 
     public CanadaAttraction(String id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public CanadaAttraction(String id, String name, String address, String city, String province, String description, String image_name) {
+    public CanadaAttraction(String id, String name, String address, String city, String province, String description, String image_name,String openTime) {
         this.id = id;
         this.name = name;
         this.address = address;
@@ -26,7 +27,10 @@ public class CanadaAttraction implements Serializable {
         this.province = province;
         this.description = description;
         this.image_name = image_name;
+        this.openTime = openTime;
     }
+
+
 
     public String getId() {
         return id;
@@ -54,5 +58,9 @@ public class CanadaAttraction implements Serializable {
 
     public String getImage_name() {
         return image_name;
+    }
+
+    public String getOpenTime() {
+        return openTime;
     }
 }
