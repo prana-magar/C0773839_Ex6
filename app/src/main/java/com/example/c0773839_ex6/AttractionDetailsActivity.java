@@ -12,7 +12,7 @@ import com.example.c0773839_ex6.Model.CanadaAttraction;
 public class AttractionDetailsActivity extends AppCompatActivity {
 
     ImageView attractionImage;
-    TextView attractionName, attractionLocation, attractionDescription;
+    TextView attractionName, attractionLocation, attractionDescription, attractionOpenTime;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,12 +21,14 @@ public class AttractionDetailsActivity extends AppCompatActivity {
         attractionName = findViewById(R.id.attraction_name_detail_id);
         attractionLocation = findViewById(R.id.location_detail_id);
         attractionDescription = findViewById(R.id.short_description_detail_id);
+        attractionOpenTime = findViewById(R.id.open_time_detail_id);
         Intent mIntent = getIntent();
         CanadaAttraction canadaAttraction = (CanadaAttraction) mIntent.getSerializableExtra("obj");
         attractionImage.setImageResource(getResources().getIdentifier(canadaAttraction.getImage_name(),"drawable","com.example.c0773839_ex6"));
         attractionName.setText(canadaAttraction.getName());
         attractionLocation.setText(canadaAttraction.getAddress());
         attractionDescription.setText(canadaAttraction.getDescription());
+        attractionOpenTime.setText(canadaAttraction.getOpenTime());
 
     }
 
